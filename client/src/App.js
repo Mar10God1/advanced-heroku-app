@@ -4,6 +4,7 @@ import "./App.css";
 import SignUpSignIn from "./SignUpSignIn";
 import TopNavbar from "./TopNavbar";
 import Secret from "./Secret";
+import Main from "./components/Main";
 
 class App extends Component {
   constructor() {
@@ -103,7 +104,7 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/" render={() => <h1>I am protected!</h1>} />
+          <Route exact path="/" component={Main} />
           <Route exact path="/secret" component={Secret} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>

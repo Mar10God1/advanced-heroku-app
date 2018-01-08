@@ -8,6 +8,7 @@ import passport from "passport";
 import authenticationRoutes from "./routes/AuthenticationRoutes";
 import listRoutes from "./routes/ListRoutes";
 import articleRoutes from "./routes/blog/ArticleRoutes";
+import coinRoutes from "./routes/CoinRoutes";
 
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
@@ -27,6 +28,7 @@ const authStrategy = passport.authenticate("authStrategy", { session: false });
 app.use(authStrategy);
 app.use(listRoutes);
 app.use(articleRoutes);
+app.use(coinRoutes);
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);
