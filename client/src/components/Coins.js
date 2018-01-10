@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 function Coins (props) {
     let coinDivs = props.coins.map((coin, i) => {
+        
         return (
             <div key={i}>
-                {coin.make} {coin.model} {coin.engine}
-                <button onClick={() => 
-                props.deleteCoin(coin._id)}>Delete</button>
+                {coin.symbol} {coin.name} {coin.price} {coin.change}
+                
                 <Link to={"/coins/" + coin._id}>View</Link>
             </div>);
         });
         return (
-            <div>
+            <div className="coin-list">
                 {coinDivs}
             </div>
     );

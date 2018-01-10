@@ -9,6 +9,14 @@ const schema = new mongoose.Schema({
         required: true,
         type: String
     },
+    price: {
+        required: false,
+        type: String
+    },
+    change: {
+        required: false,
+        type: String
+    },
 });
 
 export default mongoose.model("Coin", schema);

@@ -47,7 +47,7 @@ class SignUp extends Component {
             value={this.state.password}
           />
         </FormGroup>
-        <Button type="submit">
+        <Button className="blubtn" type="submit">
          Sign In
        </Button>
       </form>

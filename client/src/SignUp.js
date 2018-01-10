@@ -64,7 +64,7 @@ class SignUp extends Component {
           />
         </FormGroup>
 
-        <Button type="submit">
+        <Button className="blubtn" type="submit">
          Sign Up
        </Button>
       </form>

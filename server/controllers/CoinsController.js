@@ -16,11 +16,10 @@ export function show(request, response) {
 
 export function create(request, response) {
     const coin = new Coin({
-        make: request.body.make,
-        model: request.body.model,
-        yeoin: request.body.yeoin,
-        color: request.body.color,
-        engine: request.body.engine
+        symbol: request.body.symbol,
+        name: request.body.name,
+        price: request.body.price,
+        change: request.body.change,
     });
     coin.save()
     .then(coins => {

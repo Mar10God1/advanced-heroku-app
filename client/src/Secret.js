@@ -15,7 +15,7 @@ class Secret extends Component {
 
   render() {
     return (
-      <h1>Coin List</h1>
+      <h1>Secret</h1>
     );
   }
 }

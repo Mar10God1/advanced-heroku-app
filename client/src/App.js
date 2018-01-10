@@ -4,20 +4,33 @@ import "./App.css";
 import SignUpSignIn from "./SignUpSignIn";
 import TopNavbar from "./TopNavbar";
 import Secret from "./Secret";
-import Main from "./components/Main";
+import MainContainer from "./containers/MainContainer";
+import CoinContainer from "./containers/CoinContainer";
+import CoinsContainer from "./containers/CoinsContainer";
+
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       signUpSignInError: "",
-      authenticated: localStorage.getItem("token") || false
+      authenticated: localStorage.getItem("token") || false,
+      searchTerm: "Bitcoin"
     };
     this.handleSignIn = this.handleSignIn.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
     this.handleSignUp = this.handleSignUp.bind(this);
   }
 
+  componentDidMount() {
+
+    
+    
+    
+    console.log(this.state.searchTerm);
+  }
+  
   handleSignUp(credentials) {
     const { username, password, confirmPassword } = credentials;
     if (!username.trim() || !password.trim() ) {
@@ -103,9 +116,12 @@ class App extends Component {
   renderApp() {
     return (
       <div>
+        
         <Switch>
-          <Route exact path="/" component={Main} />
+          <Route exact path="/main" component={MainContainer} />
           <Route exact path="/secret" component={Secret} />
+          <Route path="/coins/:id" component={CoinContainer} />
+          <Route path="/coins" component={CoinsContainer} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>
       </div>
@@ -124,8 +140,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <TopNavbar 
+            
             showNavItems={this.state.authenticated} 
             onSignOut={this.handleSignOut} />
+            
           {whatToShow}
         </div>
       </BrowserRouter>

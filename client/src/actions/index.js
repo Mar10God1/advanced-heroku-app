@@ -1,6 +1,6 @@
 export function loadCoins() {
     return function (dispatch) {
-      fetch("/coins")
+      fetch("https://api.mlab.com/api/1/databases/blockhead/collections/coins?apiKey=D7Xha0NmP3aNaNaSw4L3IHdaoT2DqLrO")
           .then((response) => {
             return response.json();
           }).then((coins) => {
@@ -62,3 +62,67 @@ export function loadCoins() {
           value: coin
       }
   }
+
+  export function loadPrice(symbol) {
+    return function (dispatch) {
+      let fetchURL = "https://api.cryptonator.com/api/full/" + symbol + "-usd";
+      dispatch({
+        type: "LOAD_PRICE"
+      });
+      fetch(fetchURL)
+      .then((response) => {
+        return response.json();
+      }).then((price) => {
+        dispatch(priceLoaded(price));
+      });  
+    };
+  }
+  
+    export function priceLoaded(price) {
+      return {
+        type: "PRICES_LOADED",
+        value: price
+      };
+    }
+
+
+        export function getArticle(id) {
+            return function (dispatch) {
+                fetch("/articles/" + id)
+                .then((response) => {
+                    return response.json();
+                }).then((article) => {
+                    dispatch(getArticleDone(article));
+                });
+            };
+        }
+        
+        function getArticleDone(article) {
+            return {
+                type: "GET_ARTICLE_DONE",
+                value: article
+            };
+        }
+        export function loadNews(searchTerm) {
+            return function (dispatch) {
+              if (!searchTerm) {
+                  searchTerm = "Bitcoin";
+              };
+              let apiKey = "&language=en&apiKey=6e15c7534d224c2da1c2feecafe5a01b";
+              let fetchURL = "https://newsapi.org/v2/everything?q=" + searchTerm + apiKey;
+              fetch(fetchURL)
+              .then((response) => {
+                return response.json();
+              }).then((articles) => {
+                dispatch(newsLoaded(articles));
+              });
+            };
+          }
+          
+          function newsLoaded(articles) {
+            return {
+              type: "ARTICLES_LOADED",
+              value: articles.articles
+            };
+          }
+          
