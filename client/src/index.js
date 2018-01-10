@@ -11,9 +11,13 @@ window.fetch = function fetch(url, settings) {
   {authorization: localStorage.getItem("token")});
   settings = settings || {};
   settings.headers = headers;
+  
+  if(url.startsWith("https://bittrex.com")) {
+    delete settings.headers.contenttype;
+  }
   if(url.startsWith("https://newsapi.org")) {
     delete settings.headers.authorization;
-  } 
+  }
   return oldFetch(url, settings);
 };
 

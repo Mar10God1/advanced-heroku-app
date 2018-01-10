@@ -2,15 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "./blockhead-logo.svg";
+import logo from "./images/blockhead-logo.svg";
+import SearchBoxContainer from "./containers/SearchBoxContainer";
+
 
 const TopNavbar = (props) => {
   let navItems = "";
   if (props.showNavItems) {
     navItems = (
               <div>
+                <Nav pullLeft>
+                  <SearchBoxContainer />
+                </Nav>
                 <Nav pullRight>
-                  <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
+                  <Link to="/secret"><Navbar.Text>My Portfolio</Navbar.Text></Link>
                   <Link to="/main"><Navbar.Text>Main</Navbar.Text></Link>
                   <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
                 </Nav>

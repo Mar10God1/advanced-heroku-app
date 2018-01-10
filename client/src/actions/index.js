@@ -16,6 +16,24 @@ export function loadCoins() {
     };
   }
   
+  export function loadMarkets() {
+    return function (dispatch) {
+      fetch("https://bittrex.com/api/v1.1/public/getmarketsummaries", )
+          .then((response) => {
+            return response.json();
+          }).then((markets) => {
+            dispatch(coinsLoaded(markets));
+          });
+    };
+  }
+  
+  function marketsLoaded(markets) {
+    return {
+      type: "MARKETS_LOADED",
+      value: markets
+    };
+  }
+
   export function addCoin(c) {
       return function (dispatch) {
           fetch("/coins", {
@@ -108,7 +126,7 @@ export function loadCoins() {
               if (!searchTerm) {
                   searchTerm = "Bitcoin";
               };
-              let apiKey = "&language=en&apiKey=6e15c7534d224c2da1c2feecafe5a01b";
+              let apiKey = "&from=2017-06-01&sortby=publishedAt&language=en&apiKey=6e15c7534d224c2da1c2feecafe5a01b";
               let fetchURL = "https://newsapi.org/v2/everything?q=" + searchTerm + apiKey;
               fetch(fetchURL)
               .then((response) => {

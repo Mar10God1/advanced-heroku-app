@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import CoinsContainer from "../containers/CoinsContainer";
-import SearchBoxContainer from "../containers/SearchBoxContainer";
 import ArticlesContainer from "../containers/ArticlesContainer";
-
+import MarketsContainer from "../containers/MarketsContainer";
 class Main extends Component {
 
     componentDidMount() {
         this.props.loadCoins();
+        this.props.loadMarkets();
         this.props.loadNews();
 
     }
@@ -14,8 +14,8 @@ class Main extends Component {
 
         return (
             <div className="Main">
-                <SearchBoxContainer />
                 <CoinsContainer />
+                <MarketsContainer />
                 <ArticlesContainer />
             </div>
         );

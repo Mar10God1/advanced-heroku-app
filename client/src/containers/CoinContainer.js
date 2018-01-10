@@ -6,7 +6,8 @@ function mapStateToProps(state) {
 
     return {
         coin: state.coin,
-        price: state.price
+        price: state.price,
+        searchTerm: state.searchTerm
     };
 }
 

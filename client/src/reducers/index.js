@@ -14,6 +14,14 @@ function coin(state = [], action) {
   return state;
 }
 
+function markets(state = [], action) { 
+    if (action.type === "MARKETS_LOADED") {
+      return action.value;
+    }
+    return state;
+  }
+  
+
 function articles(state = [], action) { 
     if (action.type === "ARTICLES_LOADED") {
       return action.value;
@@ -36,6 +44,6 @@ function searchResults(state = [], action) {
   }
 
 const rootReducer = combineReducers({
-  coins, coin, articles, article, searchResults
+  coins, coin, articles, article, markets, searchResults
 });
 export default rootReducer;

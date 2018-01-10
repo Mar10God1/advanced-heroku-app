@@ -13,7 +13,7 @@ class Article extends Component {
 
         return (
             <div className="Article">
-                <img src={this.props.article.urlToImage.query.lang} />
+                <img src={this.props.article.urlToImage} />
                 <div>{this.props.article.title}</div>
                 <div>{this.props.article.description}</div>
                 <div>{this.props.article.source.name}</div>
