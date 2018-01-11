@@ -12,8 +12,8 @@ window.fetch = function fetch(url, settings) {
   settings = settings || {};
   settings.headers = headers;
   
-  if(url.startsWith("https://bittrex.com")) {
-    delete settings.headers.contenttype;
+  if(url.startsWith("https://min-api")) {
+    delete settings.headers.authorization;
   }
   if(url.startsWith("https://newsapi.org")) {
     delete settings.headers.authorization;

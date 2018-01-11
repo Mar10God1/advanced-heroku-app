@@ -6,7 +6,7 @@ import TopNavbar from "./TopNavbar";
 import Secret from "./Secret";
 import MainContainer from "./containers/MainContainer";
 import CoinContainer from "./containers/CoinContainer";
-import CoinsContainer from "./containers/CoinsContainer";
+import MyPortfolioContainer from "./containers/CoinsContainer";
 
 
 
@@ -25,12 +25,12 @@ class App extends Component {
 
   componentDidMount() {
 
-    
-    
-    
+   
     console.log(this.state.searchTerm);
   }
   
+
+
   handleSignUp(credentials) {
     const { username, password, confirmPassword } = credentials;
     if (!username.trim() || !password.trim() ) {
@@ -119,9 +119,9 @@ class App extends Component {
         
         <Switch>
           <Route exact path="/main" component={MainContainer} />
-          <Route exact path="/secret" component={Secret} />
+          <Route exact path="/" component={Secret} />
           <Route path="/coins/:id" component={CoinContainer} />
-          <Route path="/coins" component={CoinsContainer} />
+          <Route path="/coins" component={MyPortfolioContainer} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>
       </div>

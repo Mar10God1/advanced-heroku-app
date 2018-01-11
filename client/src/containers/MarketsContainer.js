@@ -5,7 +5,8 @@ import Markets from "../components/Markets";
 function mapStateToProps(state) {
 
     return {
-        markets: state.markets
+        markets: state.markets,
+        searchTerm: state.searchTerm
     };
 }
 

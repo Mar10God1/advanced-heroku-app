@@ -13,8 +13,9 @@ function mapDispatchToProps(dispatch) {
       },
     loadNews: function (searchTerm) {
         dispatch(loadNews());
-    }
+    },
   };
 }
+
 
 export default connect(null,mapDispatchToProps)(App);

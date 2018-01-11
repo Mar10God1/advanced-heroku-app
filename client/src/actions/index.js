@@ -18,11 +18,11 @@ export function loadCoins() {
   
   export function loadMarkets() {
     return function (dispatch) {
-      fetch("https://bittrex.com/api/v1.1/public/getmarketsummaries", )
+      fetch("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XRP,BCH,ADA,BCC,LTC,XEM,SLM,MIOTA,DASH,NEO,TRX,EOS,XMR,ICX,QTUM,ETC,LSK,BCD,OMG,XVG,PPT,ZEC,BCN,VEN,BNB,KCS,STRAT,SC,USDT,BTS,SNT,ARDR,DOGE,NAS,REP,STEEM,WAVES,ZRX,DGB,BERI,ARK,KMD,HSR,ETN,GNT,BAT,PIVX,DCR,SALT,DENT,BQX,QASH,FUN,RDD,SUB,FCT,ENG,ELF,AION,REQ,AE,POWR,GAS,NXS&tsyms=USD")
           .then((response) => {
             return response.json();
           }).then((markets) => {
-            dispatch(coinsLoaded(markets));
+            dispatch(marketsLoaded(markets));
           });
     };
   }
@@ -30,7 +30,7 @@ export function loadCoins() {
   function marketsLoaded(markets) {
     return {
       type: "MARKETS_LOADED",
-      value: markets
+      value: markets.RAW
     };
   }
 
@@ -126,7 +126,7 @@ export function loadCoins() {
               if (!searchTerm) {
                   searchTerm = "Bitcoin";
               };
-              let apiKey = "&from=2017-06-01&sortby=publishedAt&language=en&apiKey=6e15c7534d224c2da1c2feecafe5a01b";
+              let apiKey = "&from=2017-01-01&sortby=publishedAt&language=en&apiKey=6e15c7534d224c2da1c2feecafe5a01b";
               let fetchURL = "https://newsapi.org/v2/everything?q=" + searchTerm + apiKey;
               fetch(fetchURL)
               .then((response) => {

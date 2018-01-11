@@ -3,24 +3,17 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 function Coins (props) {
-
     let coinDivs = props.coins.map((coin, i) => {
-        
         return (
-            <div className="coin-item" key={i}>
-                <div>
-                    {coin.symbol}
-                </div>
-                <div>
-                    {coin.price}
-                </div>
-                <div>
-                    {coin.change}
-                </div>
+            <div key={i}>
+                {coin.name} {coin.buyprice} {coin.buyquantity}
+                <button onClick={() => 
+                props.deleteCoin(coin._id)}>Delete</button>
+                <Link to={"/coins/" + coin._id}>View</Link>
             </div>);
         });
         return (
-            <div className="coin-list">
+            <div>
                 {coinDivs}
             </div>
     );

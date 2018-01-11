@@ -6,6 +6,7 @@ function Articles (props) {
     let articleDivs = props.articles.map((article, i) => {
             let date = article.publishedAt.slice(0,10);
             if (article.urlToImage) {
+                if (article.source.name !== "Nzherald.co.nz") {
             return (
                 <div className="news-item" key={i}>
                     <div className="article-img">
@@ -18,6 +19,7 @@ function Articles (props) {
                     </div>
                 </div>);
             }
+        }
         });
         return (
             <div className="news-list">

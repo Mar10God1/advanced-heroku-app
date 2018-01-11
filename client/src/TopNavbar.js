@@ -15,7 +15,7 @@ const TopNavbar = (props) => {
                   <SearchBoxContainer />
                 </Nav>
                 <Nav pullRight>
-                  <Link to="/secret"><Navbar.Text>My Portfolio</Navbar.Text></Link>
+                  <Link to="/coins"><Navbar.Text>My Portfolio</Navbar.Text></Link>
                   <Link to="/main"><Navbar.Text>Main</Navbar.Text></Link>
                   <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
                 </Nav>

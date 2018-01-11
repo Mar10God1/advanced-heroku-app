@@ -12,11 +12,19 @@
 }
 
 .Main {
-  margin-left: 20px;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 40% 60%;
+  width: 100%;
+  display: flex;
+  
+  
 }
+
+.main-container {
+  margin: 0 auto;
+  width: 75%;
+  display: flex;
+ 
+}
+
 .blubtn {
   background-color: #2D2D2D;
   color: #fff;
@@ -74,17 +82,58 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 
 .coin-list {
-  grid-column: 1;
+  width: 40%;
   display: flex;
   flex-direction: column;
-  background-color: #2D2D2D;
-  padding: 5px;
+  background-color: #222222;
+  border: 1px solid black;
   color: #B3B4B3;
+  border-top-color: #2D2D2D;
+  border-left-color: #2D2D2D;
+  margin-right: 10px;
 }
 
 .coin-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+
+  border: 1px solid black;
+  border-bottom-color: #2D2D2D;
+  border-right-color: #2D2D2D;
+  padding: 5px;
+}
+.coin-item-header {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  color: white;
   justify-content: space-between;
+  border: 1px solid black;
+  border-bottom-color: #2D2D2D;
+  border-right-color: #2D2D2D;
+  padding: 5px;
+}
+
+.coin-name {
+  grid-column: 1;
+  justify-self: start;
+}
+.coin-price {
+  grid-column: 2
+}
+.coin-change {
+  grid-column: 3;
+  justify-self: end;
+}
+.changeUp {
+  grid-column: 3;
+  color: green;
+  justify-self: end;
+}
+
+.changeDown {
+  grid-column: 3;
+  color: red;
+  justify-self: end;
 }
 
 .market-list {
@@ -92,10 +141,12 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 }
 .news-list {
   text-align: left;
-  grid-column: 2;
-  width: 400px;
-  background-color: #222222;
-
+  margin-left: 10px;
+  width: 60%;
+  
+  border: 1px solid black;
+  border-top-color: #2D2D2D;
+  border-left-color: #2D2D2D;
   
 }
 
@@ -107,6 +158,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   border-bottom-color: #2D2D2D;
   border-right-color: #2D2D2D;
   padding: 5px;
+  background-color: #222222;
 }
 
 
@@ -155,4 +207,22 @@ a:visited {
   font-size: 10px;
   margin: 5px;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 840px) {
+  .main-container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .main-container {
+    width: 98%;
+  }
+  .coin-list {
+    margin-right: 2.5px;
+  }
+  .news-list {
+    margin-right: 2.5px;
+  }
 }
